@@ -27,3 +27,11 @@ def random_out(data: list, quantity: int):
 
 # вывод в консоль заданного количества названий 
 print(random_out(read_to_list(PATH), 10))
+
+
+'''
+
+
+
+
+'''
