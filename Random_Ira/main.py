@@ -3,11 +3,16 @@ from random import sample
 import telebot
 
 # путь до текстового файлика с названиями географических мест
-PATH = 'C:/Users/Yarik/Documents/ITMO_1/Random_Ira/name.txt'
+PATH_ALL = 'C:/Users/Yarik/Documents/ITMO_1/Random_Ira/name_all.txt'
+
+PATH_RU = 'C:/Users/Yarik/Documents/ITMO_1/Random_Ira/name_ru.txt'
+
+PATH_LOG = 'C:/Users/Yarik/Documents/ITMO_1/Random_Ira/'
 
 TOKEN = '5685174221:AAFfxWguOdEoHGZl_MIwFtIGBw5S40S0enY'
 
-log_config = {'path_log': PATH,
+
+log_config = {'path_log': PATH_LOG,
               'log_level': 'debug'}
 logi = RovLogger(log_config)
 
@@ -16,7 +21,8 @@ logi.info('init telegram bot')
 
 
 '''
-random_10 - random geographic points
+rand_10 - random geographic points
+rand_10_ru - random geographic points rus
 '''
 
 
@@ -30,8 +36,11 @@ def read_to_list(path: str):
         return data_out
 
 
-data_mass = list(set(read_to_list(PATH)))
-logi.info('Data : ' + str(data_mass))
+data_mass_all = list(set(read_to_list(PATH_ALL)))
+logi.info('Data all: ' + str(data_mass_all))
+
+data_mass_ru = list(set(read_to_list(PATH_RU)))
+logi.info('Data ru: ' + str(data_mass_ru))
 
 
 def random_out(data: list, quantity: int):
@@ -46,9 +55,16 @@ def random_out(data: list, quantity: int):
     return str_out
 
 
-@bot.message_handler(commands=['random_10'])
+@bot.message_handler(commands=['rand_10'])
 def random_10_out(message):
-    data = random_out(data_mass, 10)
+    data = random_out(data_mass_all, 10)
+    bot.send_message(message.chat.id, data)
+    logi.debug(f'User: {message.from_user.username} Data: {data}')
+    
+    
+@bot.message_handler(commands=['rand_10_ru'])
+def random_10_out(message):
+    data = random_out(data_mass_ru, 10)
     bot.send_message(message.chat.id, data)
     logi.debug(f'User: {message.from_user.username} Data: {data}')
 
