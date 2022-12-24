@@ -1,2 +1,6 @@
- eye, you should 
-choose the size of the symbol based on the principle by which the data is repeated in your sequence.
+The idea behind Huffman coding is based on the frequency of occurrence of a character in a sequence. The character that occurs 
+most often in the sequence receives a new very small code, and the character that occurs least often receives, on the contrary, 
+a very long code. This is necessary because we want that when we have processed the entire input, the most frequent characters 
+take up the least space (and less than they occupied in the original), and the rarest ones more (but since they are rare, it 
+does not matter). For our program, I decided that the character will have a length of 8 bits, that is, it will correspond to 
+the printed sign.

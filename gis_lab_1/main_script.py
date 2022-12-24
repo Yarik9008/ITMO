@@ -6,14 +6,10 @@ def bit_string_to_bytes(s):
     return int(s, 2).to_bytes((len(s) + 7) // 8, byteorder='big')
 
 # функция перевода байтовой строки в обычную строку
-
-
 def bytes_to_bit_string(bytess):
     return bin(int.from_bytes(bytess, 'big')).split('b')[1]
 
 # Функция для кодировки с помощью алгоритма хаффмана
-
-
 def encode_huffman(path_input: str, path_output: str):
     mass_key = {}
     # рекурсивная функция которая позволяет преобразовать расположение элементов в массиве в их кодировку
@@ -166,11 +162,11 @@ if __name__ == '__main__':
         # блоке запуска функции декодирования реализованны аналогичные проверки с функцией кодирования
         elif sys.argv[1] == '--decode':
             if sys.argv[2][-4:] == '.txt' and sys.argv[3][-4:] == '.txt':
-                # try:
+                try:
                     decode_huffman(sys.argv[2], sys.argv[3])
                     print("\033[92m{}\033[00m" .format(
                         'INFO: Successfully decode'))
-                # except:
+                except:
                     print("\033[91m{}\033[00m" .format(
                         'ERROR Decode: Falled decoding'))
             else:
