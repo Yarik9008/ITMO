@@ -88,4 +88,8 @@
     https://aliexpress.ru/item/32974065180.html
     https://aliexpress.ru/item/1005004993892429.html
 
+    - разъем зарядки АБ (2 pin)
+    https://aliexpress.ru/item/1005003624866445.html
 
+    - разъем перепрошивки микроконтроллера (5 pin)
+    https://aliexpress.ru/item/1005003624866445.html
